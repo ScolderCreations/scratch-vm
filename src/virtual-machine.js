@@ -25,7 +25,7 @@ const {loadSound} = require('./import/load-sound.js');
 const {serializeSounds, serializeCostumes} = require('./serialization/serialize-assets');
 require('canvas-toBlob');
 
-const RESERVED_NAMES = ['_mouse_', '_stage_', '_edge_', '_myself_', '_random_'];
+const RESERVED_NAMES = ['_mouse_', '_stage_', '_edge_', '_myself_', '_random_', '%'];
 
 const CORE_EXTENSIONS = [
     // 'motion',
@@ -391,7 +391,7 @@ class VirtualMachine extends EventEmitter {
             mimeType: 'application/x.scratch.sb3',
             compression: 'DEFLATE',
             compressionOptions: {
-                level: 6 // Tradeoff between best speed (1) and best compression (9)
+                level: 8 // Tradeoff between best speed (1) and best compression (9)
             }
         });
     }
@@ -442,7 +442,7 @@ class VirtualMachine extends EventEmitter {
             mimeType: 'application/x.scratch.sprite3',
             compression: 'DEFLATE',
             compressionOptions: {
-                level: 6
+                level: 8
             }
         });
     }
